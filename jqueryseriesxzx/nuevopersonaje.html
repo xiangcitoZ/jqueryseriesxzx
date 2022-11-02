@@ -67,14 +67,15 @@
                var nom = $("#cajanombre").val();
                var img = $("#cajaimagen").val();
                var id = parseInt($("#selectSerie").val());
-
+                var idPersonaje = parseInt((Math.random()*100)+1);
                console.log(id);
                
                 var personaje = new Object();
                
                 personaje.nombre = nom;
                 personaje.imagen = img;
-                personaje.idPersonaje = id;
+                personaje.idSerie = id;
+                personaje.idPersonaje = idPersonaje
                
                 var dataJson = JSON.stringify(personaje);
                 console.log(dataJson);
