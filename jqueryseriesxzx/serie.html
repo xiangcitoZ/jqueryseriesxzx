@@ -24,9 +24,10 @@
     <script src="../js/jquery-3.6.1.min.js"></script>
 
     <script>
-        var urlSeries = "https://apiseriespersonajes2022.azurewebsites.net/";
+        var urlSeries = "https://apiseriespersonajes2023.azurewebsites.net/";
 
         $(document).ready(function(){
+            //LLAMO EL MENU DEL HTML MENU
             $("#menu").load("menu.html");
             loadSerie();
         })
@@ -44,7 +45,7 @@
                     $("#idMensaje").attr("src",data.imagen);
                     $("#idIMDB").text("IMDB: "+data.puntuacion);
                     
-
+                    //HACE REFERENCIA A LA RUTA QUE DIRIGE AL HTML
                     $("#btnPersonajes").attr("href","personajes.html?idSerie=" + data.idSerie);
                     
                 

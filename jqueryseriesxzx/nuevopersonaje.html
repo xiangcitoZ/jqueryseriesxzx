@@ -32,8 +32,9 @@
     <script src="../js/jquery-3.6.1.min.js"></script>
 
     <script>
-
-    var urlSeries = "https://apiseriespersonajes2022.azurewebsites.net/";
+    
+    //PASANDO LOS PARAMETROS DE LA RUTA
+    var urlSeries = "https://apiseriespersonajes2023.azurewebsites.net/";
     const parameters = new URLSearchParams(window.location.search);
     
     function selectSerie(){
@@ -61,6 +62,7 @@
 
             selectSerie();
 
+            //BOTON PARA INSERTAR
             $("#botoninsertar").click(function() {
                var nom = $("#cajanombre").val();
                var img = $("#cajaimagen").val();

@@ -37,7 +37,7 @@
                   Series
                 </a>
                 <ul class="dropdown-menu" id="seriesDropdown">
-                  <!-- <li><a class="dropdown-item" href="#">Action</a></li> Esto es lo que queremos generar dinámicamente -->
+                  <!-- DROPDOWN DE LA SERIE -->
                 </ul>
               </li>
     
@@ -46,17 +46,17 @@
         </div>
       </nav>
 
-      <script src="../js/jquery-3.6.1.min.js"></script> <!-- SIEMPRE LO PRIMERO EL JQUERY -->
-  <!-- BOOTSTRAP -->
+      <script src="../js/jquery-3.6.1.min.js"></script> 
+    <!-- BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
       <script>
-        var urlSeries = "https://apiseriespersonajes2022.azurewebsites.net/";
+        var urlSeries = "https://apiseriespersonajes2023.azurewebsites.net/";
         $(document).ready(function(){
-            getEquipos();
+            getSerie();
         })
         
-        function getEquipos(){
+        function getSerie(){
             var request = "/api/Series";
             $.ajax({
                 "url": urlSeries + request,
