@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie</title>
+</head>
+<body>
+    <header id="menu"></header>
+    <div class="border w-75 mx-auto mt-3 rounded">
+        <h1 class="text-bg-light text-center mb-2 pb-1 border " id="idNombre"></h1>
+        <hr/>
+        <img id="idMensaje" class="rounded mx-auto d-block" style="max-height: 20vh;"/>
+        <hr/>
+        <p id="idIMDB" class="mx-3 text-center fs-6"></p>
+        <hr/>
+        <div class="mx-auto mb-2 text-center">
+            <a id="btnPersonajes" class="btn btn-success">Personajes</a> &nbsp;
+            
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.1.min.js"></script>
+
+    <script>
+        var urlSeries = "https://apiseriespersonajes2022.azurewebsites.net/";
+
+        $(document).ready(function(){
+            $("#menu").load("menu.html");
+            loadSerie();
+        })
+            
+        const parameters = new URLSearchParams(window.location.search);
+        function loadSerie(){
+            var idSerie = parameters.get("idSerie");
+            var request = "/api/Series/" + idSerie;
+            $.ajax({
+                "url": urlSeries + request,
+                "method":"GET",
+                "dataType":"JSON",
+                success : function(data){
+                    $("#idNombre").text(data.nombre);
+                    $("#idMensaje").attr("src",data.imagen);
+                    $("#idIMDB").text("IMDB: "+data.puntuacion);
+                    
+
+                    $("#btnPersonajes").attr("href","personajes.html?idSerie=" + data.idSerie);
+                    
+                
+                }
+            })
+        }
+
+
+    </script>
+</body>
+</html>
